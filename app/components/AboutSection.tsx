@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -36,9 +37,10 @@ export default function AboutSection() {
     <section
       id="section-about"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center py-32"
+      className="relative min-h-screen flex flex-col md:flex-row items-center py-32"
     >
-      <div className="relative z-20 w-full md:w-1/2 pl-10 pr-10 sm:pl-14 sm:pr-14 lg:pl-20 md:pr-16 text-right">
+      {/* Left: Text */}
+      <div className="relative z-20 w-full md:w-[35%] pl-40 text-right">
         <span className="about-reveal text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-6">
           Σχετικά με εμάς
         </span>
@@ -49,13 +51,29 @@ export default function AboutSection() {
           <span className="text-plum">Κοντονή</span>
         </h2>
 
-        <p className="about-reveal text-navy/70 text-base md:text-lg leading-relaxed max-w-lg font-light mt-8 ml-auto">
+        <p className="about-reveal text-navy/70 text-base md:text-lg leading-relaxed font-light mt-8">
           Με πάνω από τρεις δεκαετίες ενεργούς παρουσίας στα δικαστήρια, η Αντωνία Κοντονή αποτελεί σημείο αναφοράς στον νομικό κόσμο. Η πορεία της χαρακτηρίζεται από μεθοδικότητα, ακεραιότητα και μια βαθιά κατανόηση του δικαίου.
         </p>
 
-        <p className="about-reveal text-navy/50 text-sm md:text-base leading-relaxed max-w-lg font-light mt-6 ml-auto">
+        <p className="about-reveal text-navy/50 text-sm md:text-base leading-relaxed font-light mt-6">
           Απόφοιτη της Νομικής Σχολής Αθηνών με μεταπτυχιακές σπουδές στο ευρωπαϊκό δίκαιο, ανέπτυξε την πρακτική της σε υποθέσεις υψηλού προφίλ — από εταιρικές διαφορές και ποινικά ζητήματα έως διεθνή διαιτησία.
         </p>
+      </div>
+
+      {/* Center gap for statue */}
+      <div className="hidden md:block md:w-[25%]" />
+
+      {/* Right: Photo */}
+      <div className="about-reveal relative z-20 w-full md:w-[35%] pr-10 sm:pr-14 lg:pr-20 md:pl-16 flex items-center justify-end">
+        <div className="relative w-full max-w-sm aspect-[3/4] overflow-hidden">
+          <Image
+            src="/lawyer.jpg"
+            alt="Αντωνία Κοντονή"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 35vw"
+          />
+        </div>
       </div>
     </section>
   );

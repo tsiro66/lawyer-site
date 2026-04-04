@@ -5,7 +5,7 @@ import SmoothScroll from "./components/SmoothScroll";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
-import PracticeSection from "./components/PracticeSection";
+import ServicesSection from "./components/ServicesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
@@ -30,7 +30,7 @@ export default function Home() {
       <main className="relative z-0 w-full">
         <HeroSection />
         <AboutSection />
-        <PracticeSection />
+        <ServicesSection />
         <ContactSection />
 
         <Footer />

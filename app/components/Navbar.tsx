@@ -11,7 +11,7 @@ export interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: "Αρχικη", href: "#section-hero" },
   { label: "Σχετικα", href: "#section-about" },
-  { label: "Υπηρεσιες", href: "#section-practice" },
+  { label: "Υπηρεσιες", href: "#section-services" },
   { label: "Επικοινωνια", href: "#section-contact" },
 ];
 

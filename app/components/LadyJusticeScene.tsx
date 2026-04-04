@@ -129,22 +129,6 @@ function LadyJusticeModel() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Loading fallback                                                  */
-/* ------------------------------------------------------------------ */
-function Loader() {
-  const meshRef = useRef<THREE.Mesh>(null!);
-  useFrame((_, delta) => {
-    if (meshRef.current) meshRef.current.rotation.z += delta * 2;
-  });
-  return (
-    <mesh ref={meshRef}>
-      <ringGeometry args={[0.4, 0.5, 32]} />
-      <meshBasicMaterial color="#000000" wireframe />
-    </mesh>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /*  Canvas wrapper                                                    */
 /* ------------------------------------------------------------------ */
 export default function LadyJusticeScene() {
@@ -167,7 +151,7 @@ useEffect(() => {
       <Canvas
         camera={{ position: [0, 0, 5], fov: 30 }}
         gl={{ antialias: true, alpha: true }}
-        style={{ background: "transparent" }}
+        style={{ background: "transparent", pointerEvents: "none" }}
         dpr={[1, 2]}
       >
         {/* Key light — strong from upper-right */}
@@ -179,7 +163,7 @@ useEffect(() => {
         {/* Ambient fill */}
         <ambientLight intensity={0.3} />
 
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={null}>
           <LadyJusticeModel />
           <Environment preset="city" />
           <ContactShadows
