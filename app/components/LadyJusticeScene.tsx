@@ -39,7 +39,7 @@ function lerpKeyframe(
 /* ------------------------------------------------------------------ */
 /*  3D Model                                                          */
 /* ------------------------------------------------------------------ */
-function LadyJusticeModel() {
+function LadyJusticeModel({ isDesktop }: { isDesktop: boolean }) {
   const groupRef = useRef<THREE.Group>(null!);
   const { scene } = useGLTF("/LadyJustice.glb");
   const { viewport } = useThree();
@@ -133,26 +133,41 @@ function LadyJusticeModel() {
 /* ------------------------------------------------------------------ */
 export default function LadyJusticeScene() {
   const [mounted, setMounted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
 
-useEffect(() => {
-  const frame = requestAnimationFrame(() => {
-    setMounted(true);
-  });
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+    });
 
-  return () => cancelAnimationFrame(frame);
-}, []);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mql.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
   if (!mounted) return null;
 
   return (
     <div
-      className="fixed top-0 left-0 w-full h-screen z-10 pointer-events-none"
+      className={`fixed z-10 pointer-events-none ${
+        isDesktop
+          ? "top-0 left-0 w-full h-screen"
+          : "bottom-0 right-0 w-[50vw] h-[40vh]"
+      }`}
       aria-hidden="true"
     >
       <Canvas
         camera={{ position: [0, 0, 5], fov: 30 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent", pointerEvents: "none" }}
-        dpr={[1, 2]}
+        dpr={isDesktop ? [1, 2] : [1, 1.5]}
       >
         {/* Key light — strong from upper-right */}
         <directionalLight position={[5, 8, 5]} intensity={2} color="#ffffff" />
@@ -164,7 +179,7 @@ useEffect(() => {
         <ambientLight intensity={0.3} />
 
         <Suspense fallback={null}>
-          <LadyJusticeModel />
+          <LadyJusticeModel isDesktop={isDesktop} />
           <Environment preset="city" />
           <ContactShadows
             position={[0, -2.5, 0]}

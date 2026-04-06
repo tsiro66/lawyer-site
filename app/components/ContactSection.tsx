@@ -38,14 +38,14 @@ export default function ContactSection() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center py-32"
     >
-      <div className="relative z-20 w-full max-w-7xl flex flex-col md:flex-row gap-16 md:gap-48">
+      <div className="relative z-20 w-full max-w-7xl px-6 md:px-0 flex flex-col md:flex-row gap-16 md:gap-48">
         {/* Left: Contact form — right-aligned (toward center) */}
         <div className="w-full md:w-[35%] md:ml-auto ">
-          <span className="contact-reveal text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-6 text-right">
+          <span className="contact-reveal text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-6 text-center md:text-right">
             Επικοινωνία
           </span>
 
-          <h2 className="contact-reveal text-4xl md:text-5xl lg:text-6xl font-extralight leading-[1.05] tracking-[-0.02em] text-navy mb-10 text-right">
+          <h2 className="contact-reveal text-4xl md:text-5xl lg:text-6xl font-extralight leading-[1.05] tracking-[-0.02em] text-navy mb-10 text-center md:text-right">
             Ας μιλήσουμε.
           </h2>
 
@@ -96,7 +96,7 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              className="contact-reveal mt-4 self-end bg-plum text-cream text-[11px] tracking-[0.25em] uppercase px-8 py-4 hover:bg-navy transition-colors duration-500"
+              className="contact-reveal mt-4 self-center md:self-end bg-plum text-cream text-[11px] tracking-[0.25em] uppercase px-8 py-4 hover:bg-navy transition-colors duration-500"
             >
               Αποστολή
             </button>
@@ -104,7 +104,7 @@ export default function ContactSection() {
         </div>
 
         {/* Right: Additional info — left-aligned (toward center) */}
-        <div className="w-full md:w-[40%] md:pt-20 md:mr-auto md:pl-16 text-left">
+        <div className="w-full md:w-[40%] md:pt-20 md:mr-auto px-6 md:px-0 md:pl-16 text-left">
           <div className="contact-reveal mb-10">
             <p className="text-[10px] tracking-[0.2em] uppercase text-navy/40 mb-2">Διεύθυνση</p>
             <p className="text-navy text-sm font-light leading-relaxed">

@@ -71,10 +71,10 @@ export default function ServicesSection() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center py-32"
     >
-      <div className="relative z-20 w-full max-w-6xl mx-auto px-10 sm:px-14 lg:px-20">
+      <div className="relative z-20 w-full max-w-6xl mx-auto px-6 sm:px-14 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_20vw_1fr] gap-y-12">
           {/* Title in left column, right-aligned */}
-          <div className="md:col-start-1 md:text-right mb-4">
+          <div className="md:col-start-1 text-center md:text-right mb-4">
             <span className="services-reveal text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-6">
               Υπηρεσίες
             </span>
@@ -90,7 +90,7 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.title}
-                className={`services-reveal ${isLeft ? "md:col-start-1 md:text-right" : "md:col-start-3 md:text-left"}`}
+                className={`services-reveal text-center ${isLeft ? "md:col-start-1 md:text-right" : "md:col-start-3 md:text-left"}`}
               >
                 <h3 className="text-navy text-sm tracking-[0.15em] uppercase font-medium mb-3">
                   {service.title}

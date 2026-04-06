@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="relative z-20 bg-navy py-16 w-full px-10 sm:px-14 lg:px-20">
+    <footer className="relative z-20 bg-navy py-16 w-full px-6 sm:px-14 lg:px-20">
       <div className="flex flex-col md:flex-row justify-between gap-10">
         <div>
           <p className="text-cream text-sm font-semibold tracking-[0.25em] uppercase">

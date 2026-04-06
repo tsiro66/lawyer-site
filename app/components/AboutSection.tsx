@@ -40,7 +40,7 @@ export default function AboutSection() {
       className="relative min-h-screen flex flex-col md:flex-row items-center py-32"
     >
       {/* Left: Text */}
-      <div className="relative z-20 w-full md:w-[35%] pl-40 text-right">
+      <div className="relative z-20 w-full md:w-[35%] px-6 md:px-0 md:pl-40 text-center md:text-right">
         <span className="about-reveal text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-6">
           Σχετικά με εμάς
         </span>
@@ -64,7 +64,7 @@ export default function AboutSection() {
       <div className="hidden md:block md:w-[25%]" />
 
       {/* Right: Photo */}
-      <div className="about-reveal relative z-20 w-full md:w-[35%] pr-10 sm:pr-14 lg:pr-20 md:pl-16 flex items-center justify-end">
+      <div className="about-reveal relative z-20 w-full md:w-[35%] px-6 md:px-0 md:pr-10 lg:pr-20 md:pl-16 flex items-center justify-center md:justify-end mt-10 md:mt-0">
         <div className="relative w-full max-w-sm aspect-[3/4] overflow-hidden">
           <Image
             src="/lawyer.jpg"

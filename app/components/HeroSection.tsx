@@ -39,9 +39,9 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center"
     >
       {/* Text wrapping around the statue — left and right columns that "hug" the center */}
-      <div className="relative z-20 w-full flex items-center justify-between px-10 sm:px-14 lg:px-20">
+      <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between px-6 sm:px-14 lg:px-20">
         {/* Left column — pushed toward center */}
-        <div className="hero-left w-[38%] text-right pr-6 md:pr-12" style={{ opacity: 0 }}>
+        <div className="hero-left w-full md:w-[38%] text-center md:text-right pr-0 md:pr-12" style={{ opacity: 0 }}>
           <span className="text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-4">
             Δικηγορικό Γραφείο
           </span>
@@ -57,15 +57,15 @@ export default function HeroSection() {
         </div>
 
         {/* Center gap — statue lives here (fixed, behind) */}
-        <div className="w-[24%]" />
+        <div className="hidden md:block w-[24%]" />
 
         {/* Right column — pushed toward center */}
-        <div className="hero-right w-[38%] pl-6 md:pl-12" style={{ opacity: 0 }}>
-          <p className="text-navy/70 text-sm md:text-base leading-relaxed max-w-xs font-light tracking-wide">
+        <div className="hero-right w-full md:w-[38%] text-center md:text-left pl-0 md:pl-12 mt-8 md:mt-0" style={{ opacity: 0 }}>
+          <p className="text-navy/70 text-sm md:text-base leading-relaxed max-w-xs mx-auto md:mx-0 font-light tracking-wide">
             Αταλάντευτη δέσμευση στο δίκαιο. Αδιαπραγμάτευτη αφοσίωση στον εντολέα. Νομική εκπροσώπηση που αλλάζει τα δεδομένα.
           </p>
 
-          <div className="h-px w-12 bg-plum/30 mt-8 mb-8" />
+          <div className="h-px w-12 bg-plum/30 mt-8 mb-8 mx-auto md:mx-0" />
 
           <p className="text-plum text-xs tracking-[0.2em] uppercase font-light">
             Αντωνία Κοντονή
@@ -77,7 +77,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom CTA — centered */}
-      <div className="hero-cta absolute bottom-20 left-1/2 -translate-x-1/2 z-20 text-center" style={{ opacity: 0 }}>
+      <div className="hero-cta absolute bottom-10 md:bottom-20 left-1/2 -translate-x-1/2 z-20 text-center" style={{ opacity: 0 }}>
         <a
           href="#section-about"
           className="inline-flex flex-col items-center gap-3 group"

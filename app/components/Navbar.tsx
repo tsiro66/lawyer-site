@@ -76,7 +76,7 @@ export default function Navbar() {
         ref={navRef}
         className="fixed top-0 left-0 w-full z-50 bg-navy"
       >
-        <div className="w-full px-10 sm:px-14 lg:px-20 py-6 flex items-center justify-between">
+        <div className="w-full px-6 sm:px-14 lg:px-20 py-4 md:py-6 flex items-center justify-between">
           <a href="#section-hero" className="group">
             <p className="text-cream text-sm font-semibold tracking-[0.25em] uppercase">
               Αντωνια Κοντονη
