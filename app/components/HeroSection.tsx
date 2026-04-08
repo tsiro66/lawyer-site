@@ -43,16 +43,16 @@ export default function HeroSection() {
         {/* Left column — pushed toward center */}
         <div className="hero-left w-full md:w-[38%] text-center md:text-right pr-0 md:pr-12" style={{ opacity: 0 }}>
           <span className="text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-4">
-            Δικηγορικό Γραφείο
+            Δικηγορικο γραφειο
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight leading-[0.95] tracking-[-0.03em] text-navy">
-            Δικαιοσύνη
+            Νομική
           </h1>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight leading-[0.95] tracking-[-0.03em] text-plum mt-2">
-            χωρίς
+            στρατηγική
           </h1>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight leading-[0.95] tracking-[-0.03em] text-navy/40 mt-2">
-            συμβιβασμούς.
+            
           </h1>
         </div>
 
@@ -62,16 +62,16 @@ export default function HeroSection() {
         {/* Right column — pushed toward center */}
         <div className="hero-right w-full md:w-[38%] text-center md:text-left pl-0 md:pl-12 mt-8 md:mt-0" style={{ opacity: 0 }}>
           <p className="text-navy/70 text-sm md:text-base leading-relaxed max-w-xs mx-auto md:mx-0 font-light tracking-wide">
-            Αταλάντευτη δέσμευση στο δίκαιο. Αδιαπραγμάτευτη αφοσίωση στον εντολέα. Νομική εκπροσώπηση που αλλάζει τα δεδομένα.
+            Αναλαμβάνουμε την υπόθεσή σας από την αρχή μέχρι το τέλος. Χωρίς περιττά λόγια, με προσοχή στη λεπτομέρεια.
           </p>
 
           <div className="h-px w-12 bg-plum/30 mt-8 mb-8 mx-auto md:mx-0" />
 
           <p className="text-plum text-xs tracking-[0.2em] uppercase font-light">
-            Αντωνία Κοντονή
+            Αντωνια Κοντονη
           </p>
           <p className="text-navy/40 text-[10px] tracking-[0.25em] uppercase mt-1">
-            30+ χρόνια εμπειρίας
+            30+ χρονια εμπειριας
           </p>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function HeroSection() {
           className="inline-flex flex-col items-center gap-3 group"
         >
           <span className="text-[10px] tracking-[0.3em] uppercase text-navy/50 group-hover:text-plum transition-colors duration-500">
-            Ανακαλύψτε περισσότερα
+            Δειτε περισσοτερα
           </span>
           <span className="block w-px h-8 bg-plum/30 group-hover:h-12 group-hover:bg-plum transition-all duration-500" />
         </a>

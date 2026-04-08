@@ -46,6 +46,8 @@ function LadyJusticeModel({ isDesktop }: { isDesktop: boolean }) {
 
   // Scroll-driven target values (written by ScrollTrigger, read by useFrame)
   const target = useRef({ rotY: START_ROT, rotX: 0, scaleF: 1, posY: 0 });
+  const menuOpen = useRef(false);
+  const triggerRef = useRef<ScrollTrigger | null>(null);
 
   /* --- Enhance materials for a clean monochrome look --- */
   useEffect(() => {
@@ -61,31 +63,56 @@ function LadyJusticeModel({ isDesktop }: { isDesktop: boolean }) {
     });
   }, [scene]);
 
+  /* --- Segments used by both ScrollTrigger and menu-close restore --- */
+  const K = SCROLL_KEYFRAMES;
+  const segments = [
+    { a: K.hero, b: K.about },
+    { a: K.about, b: K.practice },
+    { a: K.practice, b: K.contact },
+    { a: K.contact, b: K.end },
+  ];
+  const numSegments = segments.length;
+
+  const applyProgress = (progress: number) => {
+    const p = progress * numSegments;
+    const idx = Math.min(Math.floor(p), numSegments - 1);
+    const t = p - idx;
+    Object.assign(target.current, lerpKeyframe(segments[idx].a, segments[idx].b, t));
+  };
+
   /* --- Single ScrollTrigger across entire page for smooth continuous rotation --- */
   useEffect(() => {
-    const K = SCROLL_KEYFRAMES;
-    const segments = [
-      { a: K.hero, b: K.about },
-      { a: K.about, b: K.practice },
-      { a: K.practice, b: K.contact },
-      { a: K.contact, b: K.end },
-    ];
-    const numSegments = segments.length;
-
     const trigger = ScrollTrigger.create({
       trigger: "main",
       start: "top top",
       end: "bottom bottom",
       scrub: 0.6,
       onUpdate: (self) => {
-        const p = self.progress * numSegments;
-        const idx = Math.min(Math.floor(p), numSegments - 1);
-        const t = p - idx;
-        Object.assign(target.current, lerpKeyframe(segments[idx].a, segments[idx].b, t));
+        if (menuOpen.current) return;
+        applyProgress(self.progress);
       },
     });
 
+    triggerRef.current = trigger;
+
     return () => trigger.kill();
+  }, []);
+
+  /* --- Listen for menu open/close to reset statue to hero position --- */
+  useEffect(() => {
+    const handleMenuToggle = (e: Event) => {
+      const { open } = (e as CustomEvent).detail;
+      menuOpen.current = open;
+      if (open) {
+        // Reset target to hero keyframe — useFrame will lerp there smoothly
+        Object.assign(target.current, SCROLL_KEYFRAMES.hero);
+      } else if (triggerRef.current) {
+        // Restore target from current scroll progress so statue snaps back
+        applyProgress(triggerRef.current.progress);
+      }
+    };
+    window.addEventListener("menu-toggle", handleMenuToggle);
+    return () => window.removeEventListener("menu-toggle", handleMenuToggle);
   }, []);
 
   /* --- Per-frame interpolation for smoothness --- */

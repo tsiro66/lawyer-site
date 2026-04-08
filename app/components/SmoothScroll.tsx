@@ -35,7 +35,19 @@ export default function SmoothScroll({
     gsap.ticker.add(rafCallback);
     gsap.ticker.lagSmoothing(0);
 
+    // Pause/resume Lenis when menu opens/closes
+    const handleMenuToggle = (e: Event) => {
+      const { open } = (e as CustomEvent).detail;
+      if (open) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    };
+    window.addEventListener("menu-toggle", handleMenuToggle);
+
     return () => {
+      window.removeEventListener("menu-toggle", handleMenuToggle);
       gsap.ticker.remove(rafCallback);
       lenis.destroy();
     };

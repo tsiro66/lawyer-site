@@ -33,6 +33,10 @@ export default function Navbar() {
     if (!overlayRef.current || !linksRef.current) return;
 
     if (open) {
+      // Lock scroll & notify statue
+      document.body.style.overflow = "hidden";
+      window.dispatchEvent(new CustomEvent("menu-toggle", { detail: { open: true } }));
+
       gsap.to(overlayRef.current, {
         opacity: 1,
         duration: 0.5,
@@ -54,6 +58,10 @@ export default function Navbar() {
         },
       );
     } else {
+      // Unlock scroll & notify statue
+      document.body.style.overflow = "";
+      window.dispatchEvent(new CustomEvent("menu-toggle", { detail: { open: false } }));
+
       gsap.to(overlayRef.current, {
         opacity: 0,
         duration: 0.4,
@@ -127,6 +135,22 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+        </div>
+
+        {/* Map on the right side */}
+        <div className="hidden md:flex absolute right-0 top-0 h-full w-[40%] items-center justify-center pr-14 lg:pr-28">
+          <div className="w-full max-w-md aspect-square overflow-hidden opacity-60 rounded-2xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.527!2d23.7412!3d37.9762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd3880aa1d3f%3A0x1d8e0e0e0e0e0e0e!2zzpvOtc-Jz4YuIM6Szrz-Cy4gz6POv8-Gzq_Osc-CIDQyLCDOkc64zq7Ovc6x!5e0!3m2!1sel!2sgr!4v1"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: "invert(1) hue-rotate(180deg) grayscale(0.3)" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Χάρτης γραφείου"
+            />
+          </div>
         </div>
       </div>
     </>

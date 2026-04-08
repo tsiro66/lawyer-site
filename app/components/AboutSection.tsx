@@ -42,7 +42,7 @@ export default function AboutSection() {
       {/* Left: Text */}
       <div className="relative z-20 w-full md:w-[35%] px-6 md:px-0 md:pl-40 text-center md:text-right">
         <span className="about-reveal text-[10px] tracking-[0.35em] uppercase text-plum/60 block mb-6">
-          Σχετικά με εμάς
+          Σχετικα με εμας
         </span>
 
         <h2 className="about-reveal text-4xl md:text-5xl lg:text-6xl font-extralight leading-[1.05] tracking-[-0.02em] text-navy">
@@ -52,11 +52,11 @@ export default function AboutSection() {
         </h2>
 
         <p className="about-reveal text-navy/70 text-base md:text-lg leading-relaxed font-light mt-8">
-          Με πάνω από τρεις δεκαετίες ενεργούς παρουσίας στα δικαστήρια, η Αντωνία Κοντονή αποτελεί σημείο αναφοράς στον νομικό κόσμο. Η πορεία της χαρακτηρίζεται από μεθοδικότητα, ακεραιότητα και μια βαθιά κατανόηση του δικαίου.
+          Η Αντωνία Κοντονή ασχολείται με το δίκαιο εδώ και πάνω από τριάντα χρόνια. Έχει χειριστεί υποθέσεις κάθε είδους — μικρές και μεγάλες, απλές και περίπλοκες.
         </p>
 
         <p className="about-reveal text-navy/50 text-sm md:text-base leading-relaxed font-light mt-6">
-          Απόφοιτη της Νομικής Σχολής Αθηνών με μεταπτυχιακές σπουδές στο ευρωπαϊκό δίκαιο, ανέπτυξε την πρακτική της σε υποθέσεις υψηλού προφίλ — από εταιρικές διαφορές και ποινικά ζητήματα έως διεθνή διαιτησία.
+          Σπούδασε στη Νομική Αθηνών και έκανε μεταπτυχιακό στο ευρωπαϊκό δίκαιο. Ασχολείται με εταιρικές διαφορές, ποινικές υποθέσεις και διεθνή διαιτησία.
         </p>
       </div>
 
